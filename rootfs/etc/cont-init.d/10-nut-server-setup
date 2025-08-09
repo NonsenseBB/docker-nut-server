@@ -3,6 +3,7 @@ set -eu
 
 mkdir -p /etc/nut
 mkdir -p /var/run/nut
+mkdir -p /var/log/nut-server
 
 echo "MODE=netserver" > /etc/nut/nut.conf
 

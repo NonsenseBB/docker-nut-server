@@ -5,7 +5,7 @@ ARG S6_OVERLAY_VERSION=3.2.1.0
 # Install nut 2.8.3+ from edge community and other packages from stable
 RUN apk update && apk add --no-cache \
     --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community \
-    nut-dev=2.8.3-r2 nut-openrc=2.8.3-r2 \
+    nut-dev nut-openrc \
     usbutils
 
 # Install S6 overlay
