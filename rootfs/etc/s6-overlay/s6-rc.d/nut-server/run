@@ -1,5 +1,7 @@
 #!/command/execlineb -P
 
+foreground { /usr/local/bin/setup-nut.sh }
+
 with-contenv
 foreground { /usr/sbin/upsdrvctl -u root start }
 foreground { s6-setuidgid nut /usr/sbin/upsd -D }
