@@ -33,5 +33,7 @@ cat > /etc/nut/upsmon.conf <<EOC
 MONITOR ${NUT_UPS_NAME}@localhost 1 nutuser ${NUT_USER_PASS} master
 EOC
 
+echo "true" > /var/run/s6/container_environment/NUT_QUIET_INIT_UPSNOTIFY
+
 chown -R root:nut /etc/nut
 chmod 640 /etc/nut/upsd.users
