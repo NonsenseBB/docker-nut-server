@@ -42,6 +42,16 @@ services:
       NUT_USER_PASS: monitor123
 ```
 
+## Connecting to the NUT Server from Another Machine
+
+You can verify that your NUT server is working by connecting to it using the `upsc` command from a different computer on the same network:
+
+```bash
+upsc myups@<server-ip-address>
+```
+
+Replace `<server-ip-address>` with the IP or hostname where the NUT server is running.
+
 ## Configuration
 
 ### Environment Variables
