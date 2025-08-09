@@ -1,0 +1,36 @@
+#!/command/with-contenv bash
+set -eu
+
+mkdir -p /etc/nut
+mkdir -p /var/run/nut
+
+echo "MODE=netserver" > /etc/nut/nut.conf
+
+cat > /etc/nut/ups.conf <<EOC
+[${NUT_UPS_NAME}]
+    driver = ${NUT_DRIVER}
+    port = auto
+    desc = "UPS Device"
+EOC
+
+cat > /etc/nut/upsd.conf <<EOC
+LISTEN 0.0.0.0 ${NUT_LISTEN_PORT}
+EOC
+
+cat > /etc/nut/upsd.users <<EOC
+[admin]
+    password = ${NUT_ADMIN_PASS}
+    actions = SET
+    instcmds = ALL
+
+[nutuser]
+    password = ${NUT_USER_PASS}
+    upsmon master
+EOC
+
+cat > /etc/nut/upsmon.conf <<EOC
+MONITOR ${NUT_UPS_NAME}@localhost 1 nutuser ${NUT_USER_PASS} master
+EOC
+
+chown -R root:nut /etc/nut
+chmod 640 /etc/nut/upsd.users

@@ -1,0 +1,3 @@
+#!/command/execlineb -P
+foreground { /usr/sbin/upsdrvctl -u root start }
+foreground { s6-setuidgid nut /usr/sbin/upsd -D }
