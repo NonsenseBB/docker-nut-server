@@ -30,6 +30,10 @@ ENV NUT_UPS_NAME=myups \
     NUT_ADMIN_PASS=admin \
     NUT_USER_PASS=monitor123
 
+# Healthcheck
+HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
+  CMD upsc ${NUT_UPS_NAME}@localhost > /dev/null || exit 1
+
 # Set S6 overlay init as entrypoint
 ENTRYPOINT ["/init"]
 
