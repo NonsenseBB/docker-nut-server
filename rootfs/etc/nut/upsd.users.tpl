@@ -3,7 +3,7 @@
     actions = SET
     instcmds = ALL
 
-[nutuser]
+[${NUT_USER_NAME}]
     password = ${NUT_USER_PASS}
     upsmon primary
     actions = SET

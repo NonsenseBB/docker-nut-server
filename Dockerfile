@@ -28,6 +28,7 @@ ENV NUT_UPS_NAME=myups \
     NUT_DRIVER=usbhid-ups \
     NUT_LISTEN_PORT=3493 \
     NUT_ADMIN_PASS=admin \
+    NUT_USER_NAME=nutuser \
     NUT_USER_PASS=monitor123
 
 # Healthcheck

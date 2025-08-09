@@ -16,6 +16,7 @@ docker run -d \
   -e NUT_DRIVER=usbhid-ups \
   -e NUT_LISTEN_PORT=3493 \
   -e NUT_ADMIN_PASS=admin \
+  -e NUT_USER_NAME=nutuser \
   -e NUT_USER_PASS=monitor123 \
   ghcr.io/nonsensebb/docker-nut-server:latest
 ```
@@ -39,6 +40,7 @@ services:
       NUT_DRIVER: usbhid-ups
       NUT_LISTEN_PORT: 3493
       NUT_ADMIN_PASS: admin
+      NUT_USER_NAME: nutuser
       NUT_USER_PASS: monitor123
 ```
 
@@ -60,6 +62,7 @@ Replace `<server-ip-address>` with the IP or hostname where the NUT server is ru
 - `NUT_DRIVER`: UPS driver name (default: `usbhid-ups`).
 - `NUT_LISTEN_PORT`: Port for NUT server to listen on (default: `3493`).
 - `NUT_ADMIN_PASS`: Password for the admin user.
+- `NUT_USER_NAME`: Username for the monitoring user (default: `nutuser`).
 - `NUT_USER_PASS`: Password for the monitoring user.
 
 ### Ports
